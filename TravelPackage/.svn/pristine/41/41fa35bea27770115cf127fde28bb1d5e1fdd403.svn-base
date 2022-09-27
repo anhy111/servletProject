@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rsv">
+
+
+
+	<!--추가 -->
+	<insert id="insertRsv" parameterType="rsvVO">
+		INSERT INTO RSV
+		(RSV_ID, RSV_TITLE, RSV_DATE, RSV_CONT, RSV_QTY, RSV_STAT, RSV_REF, MEM_MAIL, COM_PAK_ID, RSV_APP)
+		VALUES (
+		#{rsvId}, #{rsvTitle}, #{rsvDate}, #{rsvCont}, #{rsvQty}, #{rsvStat}, #{rsvRef}, #{memMail} ,#{comPakId}, #{rsvApp})
+	</insert>
+
+	<!--조회 -->
+	<select id="listRsv" resultType="rsvVO">
+		select *
+		from RSV
+	</select>
+
+	<select id="listRsv2" parameterType="rsvVO" resultType="rsvVO">
+		SELECT *
+		FROM RSV R FULL OUTER JOIN COM_PKG C
+		ON R.COM_PKG_ID = C.COM_PKG_ID
+		WHERE MEM_MAIL = #{memMail}
+		ORDER BY 1
+	</select>
+
+	<!--수정 -->
+	<!-- <update id="updateRsv" parameterType=""> update RSV set RSV_STAT = 
+		'승인완료' where ??? </update> -->
+
+	<!--삭제 -->
+	 <delete id="deleteRsv" parameterType="String">
+	  delete from RSV
+	  where RSV_ID = #{rsvId}
+	  </delete> 
+</mapper>

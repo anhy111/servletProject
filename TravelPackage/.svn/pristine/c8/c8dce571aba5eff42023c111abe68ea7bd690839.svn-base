@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="./Header.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>여행 상품</title>
+<link rel="stylesheet" href="./css/linkKeyword.css">
+<script src="https://kit.fontawesome.com/db7b16b8e2.js" crossorigin="anonymous"></script>
+<style>
+	.b{
+		border:1px solid black
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-4">
+			<div id="category" class="col-2">
+				<script src="./search.js"></script>
+			</div>
+			<div class="col-9 offset-1">
+
+				<div class="row g-0 bg-light position-relative">
+					<div class="col-md-5 mb-md-0 p-md-4">
+						<img src="https://post-phinf.pstatic.net/MjAxOTExMTlfODQg/MDAxNTc0MTI4ODI2Nzc5.g38iop1WKxnF0MnJ_Zh_efuhHbOILrk0O3KIyyGyu2Qg.REr6pEOX1KzVJkklTG-dBsfqyAXD1hnzKTzlN8obPgkg.PNG/1.png?type=w1200" class="w-100" height="100%" alt="...">
+					</div>
+					<div class="col-md-7 p-3">
+						<div>
+							<h5 class="mt-0">제주도 패키지<!-- 패키지명 --></h5>
+							<h6>서귀포 천혜향을 따봅시다.</h6>
+							<br>
+							<h6>
+								<span class="icn pos">거제시, 남해군, 통영시, 부산<!-- 지역 --></span>
+							</h6>
+							<h6 class="item prod">
+								<span>여행기간 3일<!-- 여행기간 --></span>
+							</h6>
+						</div>
+						<div class="container">
+							<div class="row mb-0">
+								<div class="item_group col-8">
+									<span class="icn star" style="color:#58CCFF">
+										<i class="fa-sharp fa-solid fa-star " ></i>
+									</span>4.8<!-- 평점 -->
+									&nbsp;&nbsp;&nbsp;
+									<span class="icn balloon" style="color:#58CCFF">
+										<i class="fa-regular fa-comment"></i>
+									</span>12<!-- 리뷰 -->
+									<br> 
+									<span class="hash_group" style="color:gray">
+										<span>#우도여행</span>
+										<span>#전국출발</span>
+										<span>#제주도패키지</span>
+									</span>
+								</div>
+								<div class="text-end col-4">
+									<br>
+									<div class="price_group text-end">
+										<strong class="price"> 379,000 <span>원~</span></strong>
+									</div>
+									<div class="text-end">
+										<a type="button" href="#" class="btn btn-info">상품 상세 보기</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<%@include file="./Footer.jsp"%>

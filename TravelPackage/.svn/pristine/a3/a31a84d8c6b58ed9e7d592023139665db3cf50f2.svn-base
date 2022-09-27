@@ -1,0 +1,76 @@
+<%@page import="kr.or.ddit.app.notice.vo.NoticeVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="../Header.jsp"%>
+<%
+	List<NoticeVO> noticeList = (List<NoticeVO>) request.getAttribute("noticeList");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자주찾는질문</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row mt-4">
+
+			<div id="category" class="col-2 b">
+				<script src="../notice/category.js"></script>
+			</div>
+
+			<div id="content" class="col-9 offset-1 b">
+			
+				<div class="col-3 offset-1" style="margin-left: 0px;">
+					<select onchange="if(this.value) location.href=(this.value);"
+						class="form-select" aria-label="Default select example">
+						<option value="0">메뉴 선택</option>
+						<option value="../notice/noticeList.do">공지사항</option>
+						<option value="../notice/FAQList.do">자주묻는질문</option>
+						<option value="../notice/QNAList.do">1:1문의</option>
+					</select>
+				</div>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">제목</th>
+							<th scope="col">내용</th>
+						</tr>
+					</thead>
+					<%
+						int noticeSize = noticeList.size();
+					if (noticeSize > 0) {
+						for (int i = 0; i < noticeSize; i++) {
+							if (noticeList.get(i).getNoticeSe().equals("1:1문의")) {
+					%>
+					<tr>
+						<td><%=noticeList.get(i).getNoticeTitle()%></td>
+						<td><%=noticeList.get(i).getNoticeCont()%></td>
+					</tr>
+					<%
+						}
+					}
+					} else {
+					%>
+					<tr>
+						<td colspan="5">자주묻는질문이 없습니다.</td>
+					</tr>
+					<%
+						}
+					%>
+					<tr>
+						<td colspan="5">
+							<button onclick="location='noticeInsert.jsp'"
+								class="btn btn-outline-primary" style="float: right">등록</button>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<%@include file="../Footer.jsp"%>

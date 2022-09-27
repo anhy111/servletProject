@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="schComb">
+
+	<insert id="insertSchComb"
+		parameterType="schVO">
+		
+		INSERT INTO SCHCOMB(
+		SCH_DAY
+		,PKG_ID
+		,TOUR_ID
+		) VALUES(
+		 #{schDay}
+		,#{pkgId}
+		,#{tourId}
+		)
+		
+	</insert>
+
+	<select id="schCombList" resultType="schVO">
+		select *
+		from SCHCOMB
+	</select>
+
+
+	<select id="getSchComb" parameterType="String" resultType="schVO">
+		select *
+		from SCHCOMB
+		where Sch_id = #{schId}
+	</select>
+
+	<update id="update" parameterType="schVO">
+		UPDATE SCHCOMB
+		SET SCH_NM = #{schNm}     
+		, SCH_DAY = #{schDay}    
+		, SCH_PRI = #{schPri}    
+		, SCH_REG = #{schReg}    
+		, SCH_GUI = #{schGui}    
+		, SCH_MIN_TO = #{schMinTo}  
+		, SCH_MAX_TO = #{schMaxTo}  
+		, SCH_RD = sysdate      
+		, SCH_WRT = #{schWrt}    
+		, ATCH_FILE_ID = #{atchFileId}
+		WHERE
+		SCH_ID = #{schId}
+	</update>
+
+
+	<delete id="delete" parameterType="String">
+			DELETE FROM SCHCOMB
+			WHERE Sch_id = #{schId}
+	</delete>
+</mapper>

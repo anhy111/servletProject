@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sch">
+
+	<insert id="insertSch"
+		parameterType="schVO">
+		
+		INSERT INTO SCH(
+		SCH_DAY
+		,PKG_ID
+		,ACM_ID
+		,VEHC_ID
+		) VALUES(
+		 #{schDay}
+		,#{pkgId}
+		,#{acmId}
+		,#{vehcId}
+		)
+		
+	</insert>
+
+	<select id="schList" parameterType="String" resultType="schVO">
+		select *
+		from SCH
+		where pkg_id=#{pkgId}
+	</select>
+
+
+	<select id="schForDay" parameterType="schVO" resultType="schVO">
+		select *
+		from SCH
+		where pkg_id = #{pkgId}
+		and sch_day = #{schDay}
+	</select>
+
+	<update id="update" parameterType="schVO">
+		UPDATE SCH
+		SET ACM_ID = #{acmId}     
+		, VEHC_ID = #{vehcId}    
+		WHERE pkg_ID = #{pkgId}
+		and sch_day = #{schDay}
+	</update>
+
+
+	<delete id="deleteForDay" parameterType="schVO">
+			DELETE FROM Sch
+			WHERE pkg_ID = #{pkgId}
+			and sch_day = #{schDay}
+	</delete>
+	
+</mapper>
