@@ -14,7 +14,7 @@ public class AcommodationDAOImpl implements IAcommodationDAO {
 	private SqlSession sqlSession;
 
 	private AcommodationDAOImpl() {
-		sqlSessionion = MyBatisUtil.getInstance(true);
+		sqlSession = MyBatisUtil.getInstance(true);
 	}
 
 	public static IAcommodationDAO getInstance() {
